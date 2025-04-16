@@ -4,25 +4,28 @@ document.getElementById('formTabela').addEventListener('submit', function(e) {
     const nome = document.getElementById('nome').value;
     const idade = document.getElementById('idade').value;
     const email = document.getElementById('email').value;
+    const apelido = document.getElementById('apelido').value;
   
-    if (nome && idade && email) {
+    if (nome && idade && email && apelido) {
       const tabela = document.getElementById('tabela').getElementsByTagName('tbody')[0];
       const novaLinha = tabela.insertRow();
   
       const celulaNome = novaLinha.insertCell(0);
       const celulaIdade = novaLinha.insertCell(1);
-      const celulaEmail = novaLinha.insertCell(2)
+      const celulaEmail = novaLinha.insertCell(2);
+      const celulaApelido = novaLinha.insertCell(3);
   
       celulaNome.textContent = nome;
       celulaIdade.textContent = idade;
       celulaEmail.textContent = email;
+      celulaApelido.textContent = apelido;
   
       this.reset();
     }
   });
   
   function baixarCSV() {
-    const linhas = [['Nome', 'Idade', 'email']];
+    const linhas = [['Nome', 'Idade', 'email', 'apelido']];
     const rows = document.querySelectorAll('#tabela tbody tr');
   
     rows.forEach(row => {
